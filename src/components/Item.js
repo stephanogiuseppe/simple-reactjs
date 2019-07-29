@@ -9,12 +9,12 @@ function Item({ item, onDelete }) {
 }
 
 Item.defaultProps = {
-  item = 'Null'
+  item: 'Null'
 }
 
 Item.propTypes = {
-  item = PropTypes.string,
-  onDelete = PropTypes.func.isRequired
+  item: PropTypes.string,
+  onDelete: PropTypes.func.isRequired
 }
 
 export default Item

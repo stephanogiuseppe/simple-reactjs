@@ -5,7 +5,19 @@ import Item from './Item'
 class List extends Component {
   state = {
     newItem: '',
-    list: [ 'PC', 'Keyboard' ]
+    list: []
+  }
+
+  componentDidMount() {
+    const items = localStorage.getItem('items')
+    if (items) {
+      this.setState({ list: JSON.parse(items) })
+    }
+  }
+  componentDidUpdate(_, prevState) {
+    if (prevState.list !== this.state.list) {
+      localStorage.setItem('items', JSON.stringify(this.state.list))
+    }
   }
 
   handleInputChange = e => {
